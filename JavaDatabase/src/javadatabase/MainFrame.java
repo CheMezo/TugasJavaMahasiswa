@@ -50,10 +50,10 @@ public class MainFrame extends javax.swing.JFrame {
         tblMahasiswa = new javax.swing.JTable();
         btnHapus = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
-        lblNim1 = new javax.swing.JLabel();
-        txtNim1 = new javax.swing.JTextField();
-        lblNim2 = new javax.swing.JLabel();
-        txtNim2 = new javax.swing.JTextField();
+        lblNim = new javax.swing.JLabel();
+        txtNim = new javax.swing.JTextField();
+        lblTahunMasuk = new javax.swing.JLabel();
+        txtTahunMasuk = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,13 +93,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        lblNim1.setText("NIM");
+        lblNim.setText("NIM");
 
-        lblNim2.setText("Tahun Masuk");
+        lblTahunMasuk.setText("Tahun Masuk");
 
-        txtNim2.addActionListener(new java.awt.event.ActionListener() {
+        txtTahunMasuk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNim2ActionPerformed(evt);
+                txtTahunMasukActionPerformed(evt);
             }
         });
 
@@ -128,12 +128,12 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblNim2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNim1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblTahunMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNim, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtNim1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNim2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtNim, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTahunMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -145,12 +145,12 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(lblNama))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNim1)
-                    .addComponent(txtNim1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNim)
+                    .addComponent(txtNim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNim2)
-                    .addComponent(txtNim2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTahunMasuk)
+                    .addComponent(txtTahunMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit)
@@ -172,8 +172,8 @@ public class MainFrame extends javax.swing.JFrame {
         insert(); // simpan ke database
 
         txtNama.setText("");
-        txtNim1.setText("");
-        txtNim2.setText("");
+        txtNim.setText("");
+        txtTahunMasuk.setText("");
 
         loadData(); // refresh tabel dari DB
 
@@ -214,8 +214,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         int id = (int) tblMahasiswa.getValueAt(row, 0);
         String nama = txtNama.getText();
-        String nim = txtNim1.getText();
-        int tahun = Integer.parseInt(txtNim2.getText());
+        String nim = txtNim.getText();
+        int tahun = Integer.parseInt(txtTahunMasuk.getText());
 
         try {
             Connection conn = DbConnection.connect();
@@ -238,9 +238,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEditActionPerformed
 
-    private void txtNim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNim2ActionPerformed
+    private void txtTahunMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTahunMasukActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNim2ActionPerformed
+    }//GEN-LAST:event_txtTahunMasukActionPerformed
 
     private void insert() {
     try {
@@ -254,15 +254,15 @@ public class MainFrame extends javax.swing.JFrame {
         String sql = "INSERT INTO mahasiswa (nim, nama, tahunmasuk) VALUES (?, ?, ?)";
         PreparedStatement ps = conn.prepareStatement(sql);
 
-        ps.setString(1, txtNim1.getText());
+        ps.setString(1, txtNim.getText());
         ps.setString(2, txtNama.getText());
-        ps.setInt(3, Integer.parseInt(txtNim2.getText()));
+        ps.setInt(3, Integer.parseInt(txtTahunMasuk.getText()));
 
         ps.executeUpdate();
         conn.close();
 
         loadData();
-        System.out.println("✅ Data berhasil disimpan ke database!");
+        System.out.println("Data berhasil disimpan ke database!");
 
     } catch (Exception e) {
         System.out.println("Insert error: " + e.getMessage());
@@ -334,12 +334,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNama;
-    private javax.swing.JLabel lblNim1;
-    private javax.swing.JLabel lblNim2;
+    private javax.swing.JLabel lblNim;
+    private javax.swing.JLabel lblTahunMasuk;
     private javax.swing.JTable tblMahasiswa;
     private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtNim1;
-    private javax.swing.JTextField txtNim2;
+    private javax.swing.JTextField txtNim;
+    private javax.swing.JTextField txtTahunMasuk;
     // End of variables declaration//GEN-END:variables
 
 }

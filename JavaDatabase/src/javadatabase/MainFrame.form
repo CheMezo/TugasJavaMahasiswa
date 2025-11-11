@@ -48,13 +48,13 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblNim2" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <Component id="lblNim1" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="lblTahunMasuk" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="lblNim" min="-2" pref="92" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtNim1" min="-2" pref="281" max="-2" attributes="0"/>
-                                  <Component id="txtNim2" min="-2" pref="281" max="-2" attributes="0"/>
+                                  <Component id="txtNim" min="-2" pref="281" max="-2" attributes="0"/>
+                                  <Component id="txtTahunMasuk" min="-2" pref="281" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -74,13 +74,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNim1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNim1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNim" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNim" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNim2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNim2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTahunMasuk" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTahunMasuk" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -155,21 +155,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblNim1">
+    <Component class="javax.swing.JLabel" name="lblNim">
       <Properties>
         <Property name="text" type="java.lang.String" value="NIM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNim1">
+    <Component class="javax.swing.JTextField" name="txtNim">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblNim2">
+    <Component class="javax.swing.JLabel" name="lblTahunMasuk">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tahun Masuk"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNim2">
+    <Component class="javax.swing.JTextField" name="txtTahunMasuk">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNim2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTahunMasukActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
